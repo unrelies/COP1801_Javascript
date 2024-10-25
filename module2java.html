@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+<title> javascript module 2 </title>
+</head>
+<body>
+
+<div id="output"></div> 
+<!-- displays the output of everything -->
+<script>
+
+let fname = prompt("whats your first name"); // this asks for the name then it displays welcome "your name"
+   alert("welcome " + fname);
+
+const piValue = 3.1415926;
+
+let myFavNum = prompt("whats your favorite number");
+  myFavNum = Number(myFavNum);
+
+let myArea = piValue * Math.pow(myFavNum, 2);
+
+document.getElementById("output").innerHTML = 
+  "<p> Your name is " + fname + "</p>" +
+  "<p> The value of Pi used is: " + piValue + "</p>" +
+  "<p> Your favorite number (used as the radius): " + myFavNum + "</p>" +
+  "<p> The area of a circle with radius " + myFavNum + " is: " + myArea + "</p>";
+  // i tried to use document.write() didnt work so i used this instead but this puts all the info in "output" to display for the user
+</script>
+
+</body>
+</html>

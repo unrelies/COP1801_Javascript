@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+<title> javascript module 3 </title>
+</head>
+<body>
+
+<script>
+for (let i = 0; i <= 10; i++) {
+   if (i % 2 === 0) {
+     document.write(`count${i} is even<br>`)
+}  else {
+     document.write(`count${i} is odd<br>`)
+	 }
+}
+let myNum;
+do { 
+    myNum = parseInt(prompt("Enter a number between 5 and 20"));
+} while (myNum < 5 || myNum > 20);
+
+let counter = 1;
+do {
+    document.write(`Counter is: ${counter}<br>`);
+    counter++;
+} while (counter <= myNum);
+
+let subjects = ["Accounting", "Algebra", "Programming", "Art", "Data Analytics"];
+
+document.write("SUBJECTS LIST<br>");
+subjects.forEach((subject) => document.write(subject + "<br>"));
+
+document.write("Subjects separated by commas " + subjects.join(", "));
+</script>
+
+</body>
+</html>

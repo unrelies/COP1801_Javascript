@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JavaScript Module 4</title>
+</head>
+<body>
+
+<script>
+function validateServiceQuality(serviceQuality) {
+    const validQualities = ["good", "okay", "bad"];
+    return validQualities.includes(serviceQuality.toLowerCase());
+}
+
+function validateServiceAmount(serviceAmount) {
+    return serviceAmount >= 5.00 && serviceAmount <= 500.00;
+}
+
+function calculateTip(serviceAmount, serviceQuality) {
+    const tipRates = {
+        "good": 0.20,
+        "okay": 0.15,
+        "bad": 0.10
+    };
+    const tipRate = tipRates[serviceQuality.toLowerCase()];
+    return serviceAmount * tipRate;
+}
+
+// Main program
+const serviceAmount = parseFloat(prompt("Enter the service amount in dollars (between $5.00 and $500.00):"));
+
+if (isNaN(serviceAmount) || !validateServiceAmount(serviceAmount)) {
+    alert("Error: Please enter a valid service amount between $5.00 and $500.00.");
+} else {
+    const serviceQuality = prompt("How was the service? (good, okay, bad): ").toLowerCase();
+
+    if (!validateServiceQuality(serviceQuality)) {
+        alert("Error: Invalid service quality. Choose from 'good', 'okay', or 'bad'.");
+    } else {
+        const tipAmount = calculateTip(serviceAmount, serviceQuality);
+        alert(`For a service amount of $${serviceAmount.toFixed(2)}, with '${serviceQuality}' service, ` +
+              `the recommended tip is: $${tipAmount.toFixed(2)}.`);
+    }
+}
+</script>
+
+</body>
+</html>
