@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JavaScript Module 5</title>
+</head>
+<body>
+
+<script>
+
+  let myDog = {
+    name: "Akamaru",
+    series: "Naruto",
+    breed: "Ninken",
+    role: "Ninja companion and partner",
+    mySound: "I am loyal and powerful; my bark strikes fear in the enemy's heart.",
+
+    describe: function() {
+      return `Hello, my name is ${this.name}. I am from the series "${this.series}", and my breed is ${this.breed}. I play the role of a ${this.role}. ${this.mySound}`;
+    }
+  };
+
+
+  alert(myDog.describe());
+
+
+  function Dog(name, series, breed, role, mySound, canTalk) {
+    this.name = name;
+    this.series = series;
+    this.breed = breed;
+    this.role = role;
+    this.mySound = mySound;
+    this.canTalk = canTalk;
+
+    this.myGreeting = function() {
+      return `Hello, my name is ${this.name}. ${this.mySound}. I starred in the TV show ${this.series}. My breed is ${this.breed}, and I am known as a ${this.role}.`;
+    };
+  }
+
+
+  let myDogConst = new Dog(
+    "Akamaru",
+    "Naruto",
+    "Ninken",
+    "Ninja companion and partner",
+    "I am loyal and powerful; my bark strikes fear in the enemy's heart.",
+    false
+  );
+
+
+  alert(myDogConst.myGreeting());
+</script>
+
+</body>
+</html>
