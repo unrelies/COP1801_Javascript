@@ -7,22 +7,6 @@
 
 <script>
 
-  let myDog = {
-    name: "Akamaru",
-    series: "Naruto",
-    breed: "Ninken",
-    role: "Ninja companion and partner",
-    mySound: "I am loyal and powerful; my bark strikes fear in the enemy's heart.",
-
-    describe: function() {
-      return `Hello, my name is ${this.name}. I am from the series "${this.series}", and my breed is ${this.breed}. I play the role of a ${this.role}. ${this.mySound}`;
-    }
-  };
-
-
-  alert(myDog.describe());
-
-
   function Dog(name, series, breed, role, mySound, canTalk) {
     this.name = name;
     this.series = series;
@@ -32,12 +16,12 @@
     this.canTalk = canTalk;
 
     this.myGreeting = function() {
-      return `Hello, my name is ${this.name}. ${this.mySound}. I starred in the TV show ${this.series}. My breed is ${this.breed}, and I am known as a ${this.role}.`;
+      let talkMessage = this.canTalk ? "I can talk!" : "I cannot talk";
+      return `Hello, my name is ${this.name}. ${this.mySound}. I starred in the TV show ${this.series}. My breed is ${this.breed}, and I am known as a ${this.role}. ${talkMessage}`;
     };
   }
 
-
-  let myDogConst = new Dog(
+  let akamaru = new Dog(
     "Akamaru",
     "Naruto",
     "Ninken",
@@ -46,8 +30,43 @@
     false
   );
 
+  let ein = new Dog(
+    "Ein",
+    "Cowboy Bebop",
+    "Pembroke Welsh Corgi",
+    "Highly intelligent 'data dog'",
+    "Woof! I’m smarter than I look!",
+    false
+  );
 
-  alert(myDogConst.myGreeting());
+  function displayDogProperties(dog) {
+    let properties = "";
+    for (let property in dog) {
+      if (typeof dog[property] !== "function") {
+        properties += `${property}: ${dog[property]}\n`;
+      }
+    }
+    alert(properties);
+  }
+
+  displayDogProperties(akamaru);
+  displayDogProperties(ein);
+
+  let selectedDogName = prompt("Please type the name of a dog (e.g., Akamaru or Ein):");
+
+  let selectedDog;
+  if (selectedDogName === akamaru.name) {
+    selectedDog = akamaru;
+  } else if (selectedDogName === ein.name) {
+    selectedDog = ein;
+  }
+
+  if (selectedDog) {
+    alert(selectedDog.myGreeting());
+  } else {
+    alert("Error: The dog you selected does not exist in the list.");
+  }
+
 </script>
 
 </body>
